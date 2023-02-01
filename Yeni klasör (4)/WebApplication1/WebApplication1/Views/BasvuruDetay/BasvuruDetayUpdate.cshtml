@@ -1,0 +1,63 @@
+﻿@model EntityLayer.Concrete.BasvuruDetay
+@{
+    ViewBag.Title = "BasvuruDetayUpdate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("BasvuruDetayUpdate", "BasvuruDetay", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.SirketID, new {Value=Model.SirketID})
+<div class="container" style="margin:0 auto;">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Üyelik Türü</label>
+            <select name="UyelikTürü" class="form-control">
+                <option value="Kurum">Kurum</option>
+                <option value="Şirket">Şirket</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Bildirim No</label>
+            @*<input type="number" name="BildirimNo" class="form-control" value="@Session["UyeNo"]" id="inputPassword4" placeholder="" readonly>*@
+            @Html.TextBoxFor(m => m.BildirimNo, new { @class = "form-control", Value = Model.BildirimNo })
+
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Başvuru Yapılan</label>
+            @*<input type="text" name="BasvuruYapilan" class="form-control" id="inputPassword4" placeholder="">*@
+            @Html.TextBoxFor(m => m.BasvuruYapilan, new { @class = "form-control", Value = Model.BasvuruYapilan })
+
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Başvuru Türü</label>
+            @*<input type="text" name="BasvuruTürü" class="form-control" id="inputPassword4" placeholder="">*@
+            @Html.TextBoxFor(m => m.BasvuruTürü, new { @class = "form-control", Value = Model.BasvuruTürü })
+
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Bildirim Kapsamı</label>
+            @*<input type="text" name="BildirimKapsami" class="form-control" id="inputPassword4" placeholder="">*@
+            @Html.TextBoxFor(m => m.BildirimKapsami, new { @class = "form-control", Value = Model.BildirimKapsami })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Verilen Süre Tarihi</label>
+            @*<input type="date" name="Tarih" class="form-control" id="inputPassword4" placeholder="">*@
+            @Html.TextBoxFor(m => m.Tarih, new { @class = "form-control", Type = "date", Value = Model.Tarih })
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Açıklama</label>
+            @*<input type="number" name="Aciklama" class="form-control" id="inputPassword4" placeholder="">*@
+            @Html.TextBoxFor(m => m.Aciklama, new { @class = "form-control", Value = Model.Aciklama })
+
+        </div>
+    </div>
+    @Html.HiddenFor(x => x.BasvuruDetayID)
+    <button type="submit" class="btn btn-primary">Onaya Gönder</button>
+    <a href="@Url.Action("BasvuruDetayList","BasvuruDetay") "><button type="button" class="btn btn-danger">İptal</button></a>
+</div>
+}
+

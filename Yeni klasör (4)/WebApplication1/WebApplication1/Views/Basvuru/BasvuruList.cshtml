@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model List<Basvuru>
+@{
+    ViewBag.Title = "BasvuruList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <a href="@Url.Action("Basvuru","Basvuru") "><button type="button" class="btn btn-primary">Basvuru Ekle</button></a>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Sirket Adı</th>
+                <th scope="col">EPosta</th>
+                <th scope="col">Ad Soyad</th>
+                <th scope="col">Telefon</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@item.SirketAdiUnvan</td>
+                    <td>@item.Eposta</td>
+                    <td>@item.AdSoyad</td>
+                    <td>@item.Telefon</td>
+                    <td><a href="/Basvuru/BasvuruSil/@item.BasvuruID">Sil</td>
+                    <td><a href="/Basvuru/BasvuruUpdate/@item.BasvuruID">Güncelle</a></td>
+                </tr>
+            </tbody>
+        }
+        </table>
+</div>
+

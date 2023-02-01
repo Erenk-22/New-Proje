@@ -1,0 +1,90 @@
+﻿@model EntityLayer.Concrete.Basvuru
+@{
+    ViewBag.Title = "BasvuruUpdate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("BasvuruUpdate", "Basvuru", FormMethod.Post))
+{
+    @Html.HiddenFor(m=>m.SirketID,new { Value=Model.SirketID})
+<div class="container" style="margin:0 auto;">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Üyelik Türü</label>
+            <select name="UyelikTürü" class="form-control">
+                <option value="Kurum">Kurum</option>
+                <option value="Şirket">Şirket</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Üye No</label>
+            <input type="number" name="UyeNo" class="form-control" value="@Session["UyeNo"]" id="inputPassword4" placeholder="" readonly>
+        </div>
+    </div>
+    <label>Şirket Bilgileri </label>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Şirket Ad/Unvanı</label>
+            @*<input type="text" name="SirketAdiUnvan" class="form-control" id="inputPassword4" placeholder="">*@
+            @Html.TextBoxFor(m => m.SirketAdiUnvan, new { @class = "form-control", Value = Model.SirketAdiUnvan })
+
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">İletişim No</label>
+            @Html.TextBoxFor(m => m.İletisimNo, new { @class = "form-control", Value = Model.İletisimNo })
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Eposta</label>
+            @*<input type="email" name="Eposta" class="form-control" id="inputPassword4" placeholder="">*@
+            @Html.TextBoxFor(m => m.Eposta, new { @class = "form-control", Value = Model.Eposta })
+
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Ticaret Sicil No</label>
+            @Html.TextBoxFor(m => m.TicaretSicilNo, new { @class = "form-control", Value = Model.TicaretSicilNo })
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Vergi No</label>
+            @Html.TextBoxFor(m => m.VergiNo, new { @class = "form-control", Value = Model.VergiNo })
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Adres</label>
+            @Html.TextBoxFor(m => m.Adres, new { @class = "form-control", Value = Model.Adres })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">il</label>
+            @Html.TextBoxFor(m => m.il, new { @class = "form-control", Value = Model.il })
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Kayitli Olunan Oda</label>
+            @Html.TextBoxFor(m => m.KayitliOlunanOda, new { @class = "form-control", Value = Model.KayitliOlunanOda })
+        </div>
+    </div>
+    <label>Şirket Yetkilisinin</label>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">TC. Kimlik No</label>
+            @Html.TextBoxFor(m => m.TcKimlikNo, new { @class = "form-control", Value = Model.TcKimlikNo })
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Adı Soyadı</label>
+            @Html.TextBoxFor(m => m.AdSoyad, new { @class = "form-control", Value = Model.AdSoyad })
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Telefon</label>
+            @Html.TextBoxFor(m => m.Telefon, new { @class = "form-control", Value = Model.Telefon })
+        </div>
+    </div>
+    @Html.HiddenFor(x => x.BasvuruID)
+    <button type="submit" class="btn btn-primary">Onaya Gönder</button>
+    <a href="@Url.Action("BasvuruList","Basvuru") "><button type="button" class="btn btn-danger">İptal</button></a>
+</div>
+}
+
+

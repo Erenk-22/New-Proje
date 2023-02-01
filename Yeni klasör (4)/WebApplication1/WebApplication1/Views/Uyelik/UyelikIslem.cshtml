@@ -1,0 +1,117 @@
+﻿@model EntityLayer.Concrete.UyelikIslem
+@{
+    ViewBag.Title = "UyelikIslem";
+    Layout = null;
+}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kayıt Ol</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    @using (Html.BeginForm("UyelikIslem", "Uyelik", FormMethod.Post))
+    {
+    <div class="container" style="margin:0 auto;">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Üyelik Türü</label>
+                <select name="UyelikTürü" class="form-control">
+                    <option value="Kurum">Kurum</option>
+                    <option value="Şirket">Şirket</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Üye No</label>
+                <input type="number" name="UyeNo" class="form-control" id="inputPassword4" placeholder="" value="@Session["UyeNo"]" readonly>
+            </div>
+        </div>
+        <label>Şirket Bilgileri </label>
+        <hr />
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Şirket Ad/Unvanı</label>
+                <input type="text" name="SirketAdiUnvan" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Sicil No</label>
+                <input type="number" name="SicilNo" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">İl</label>
+                <input type="text" name="il" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">İletişim No</label>
+                <input type="number" name="İletisimNo" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Vergi No</label>
+                <input type="number" name="VergiNo" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Adres</label>
+                <input type="text" name="Adres" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">E-posta</label>
+                <input type="email" name="Eposta" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Vergi Dairesi</label>
+                <input type="text" name="VergiDairesi" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Şifre</label>
+                <input type="password" name="Sifre" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+        </div>
+        <label>Şirket Yetkilisinin</label>
+        <hr />
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">TC. Kimlik No</label>
+                <input type="number" name="TcKimlik" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Adı Soyadı</label>
+                <input type="text" name="AdSoyad" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Telefon</label>
+                <input type="tel" name="Telefon" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Onaya Gönder</button>
+        <a href="@Url.Action("LogIn","Uyelik") "><button type="button" class="btn btn-danger">İptal</button></a>
+    </div>
+    }
+    </body>
+</html>
+

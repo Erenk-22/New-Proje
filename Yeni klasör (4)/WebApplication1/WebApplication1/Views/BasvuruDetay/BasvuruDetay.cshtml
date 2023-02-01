@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.BasvuruDetay
+@{
+    ViewBag.Title = "BasvuruDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("BasvuruDetay", "BasvuruDetay", FormMethod.Post))
+{
+    
+<div class="container" style="margin:0 auto;">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Üyelik Türü</label>
+            <select name="UyelikTürü" class="form-control">
+                <option value="Kurum">Kurum</option>
+                <option value="Şirket">Şirket</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Bildirim No</label>
+            <input type="number" name="BildirimNo" class="form-control" value="@Session["UyeNo"]" id="inputPassword4" placeholder="" readonly>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Başvuru Yapılan</label>
+            <input type="text" name="BasvuruYapilan" class="form-control" id="inputPassword4" placeholder="">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Başvuru Türü</label>
+            <input type="text" name="BasvuruTürü" class="form-control" id="inputPassword4" placeholder="">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Bildirim Kapsamı</label>
+            <input type="text" name="BildirimKapsami" class="form-control" id="inputPassword4" placeholder="">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Verilen Süre Tarihi</label>
+            <input type="date" name="Tarih" class="form-control" id="inputPassword4" placeholder="">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword4">Açıklama</label>
+            <input type="text" name="Aciklama" class="form-control" id="inputPassword4" placeholder="">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Onaya Gönder</button>
+    <a href="@Url.Action("BasvuruDetayList","BasvuruDetay") "><button type="button" class="btn btn-danger">İptal</button></a>
+</div>
+        }

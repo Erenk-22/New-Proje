@@ -1,0 +1,84 @@
+﻿@model EntityLayer.Concrete.Basvuru
+@{
+    ViewBag.Title = "Basvuru";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Basvuru", "Basvuru", FormMethod.Post))
+{
+
+    <div class="container" style="margin:0 auto;">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Üyelik Türü</label>
+                <select name="UyelikTürü" class="form-control">
+                    <option value="Kurum">Kurum</option>
+                    <option value="Şirket">Şirket</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Üye No</label>
+                <input type="number" name="UyeNo" class="form-control" value="@Session["UyeNo"]" id="inputPassword4" placeholder="" readonly>
+            </div>
+        </div>
+        <label>Şirket Bilgileri </label>
+        <hr />
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Şirket Ad/Unvanı</label>
+                <input type="text" name="SirketAdiUnvan" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">İletişim No</label>
+                <input type="number" name="İletisimNo" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Eposta</label>
+                <input type="email" name="Eposta" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Ticaret Sicil No</label>
+                <input type="number" name="TicaretSicilNo" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Vergi No</label>
+                <input type="number" name="VergiNo" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Adres</label>
+                <input type="text" name="Adres" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">il</label>
+                <input type="text" name="il" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Kayitli Olunan Oda</label>
+                <input type="text" name="KayitliOlunanOda" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+        </div>
+        <label>Şirket Yetkilisinin</label>
+        <hr />
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">TC. Kimlik No</label>
+                <input type="number" name="TcKimlikNo" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Adı Soyadı</label>
+                <input type="text" name="AdSoyad" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPassword4">Telefon</label>
+                <input type="tel" name="Telefon" class="form-control" id="inputPassword4" placeholder="">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Onaya Gönder</button>
+        <a href="@Url.Action("BasvuruList","Basvuru") "> <button type="button" class="btn btn-danger">İptal</button></a>
+</div>
+}
+
